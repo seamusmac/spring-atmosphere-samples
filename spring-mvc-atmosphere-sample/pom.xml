@@ -6,16 +6,21 @@
 	<artifactId>spring-mvc-atmosphere-sample</artifactId>
 	<name>spring-mvc-atmosphere-sample</name>
 	<packaging>war</packaging>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
+	
+	<parent>
+		<groupId>org.springframework.integration.samples</groupId>
+		<artifactId>spring-atmosphere-samples-parent</artifactId>
+		<relativePath>..</relativePath>
+		<version>1.0.0.BUILD-SNAPSHOT</version>
+	</parent>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.2.RELEASE</org.springframework-version>
+		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<spring-social.version>1.0.2.RELEASE</spring-social.version>
 		<spring-social-twitter.version>1.0.2.RELEASE</spring-social-twitter.version>
 		<junit.version>4.10</junit.version>
-		<atmosphere.version>1.0.0.beta5</atmosphere.version>
 	</properties>
 
 	<dependencies>
@@ -143,14 +148,6 @@
 	<url>http://www.springsource.org/</url>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

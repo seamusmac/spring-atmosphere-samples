@@ -12,23 +12,22 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
  * @author Gunnar Hillert
- * @since  1.0
- *
+ * @since 1.0
+ * 
  */
 public class AtmosphereArgumentResolver implements
 		HandlerMethodArgumentResolver {
 
-	@Override
 	public boolean supportsParameter(MethodParameter parameter) {
-		return AtmosphereResource.class.isAssignableFrom(parameter.getParameterType());
+		return AtmosphereResource.class.isAssignableFrom(parameter
+				.getParameterType());
 	}
 
-	@Override
 	public Object resolveArgument(MethodParameter parameter,
 			ModelAndViewContainer mavContainer, NativeWebRequest webRequest,
 			WebDataBinderFactory binderFactory) throws Exception {
-
 		return AtmosphereUtils.getAtmosphereResource(webRequest
 				.getNativeRequest(HttpServletRequest.class));
 	}
+
 }

@@ -1,11 +1,12 @@
 Spring Atmosphere Samples
 =========================
 
-This repository illustrates integration scenarios between [Atmosphere][] and Spring MVC as well as [Spring Integration][]. The following 2 samples are provided:
+This repository illustrates integration scenarios for [Atmosphere], between a GWT front end and a Spring MVC Restful server side. 
+The following 2 samples are provided:
 
-* spring-mvc-atmosphere-sample
-* spring-integration-atmosphere-sample
+1. spring-mvc-atmosphere-sample 
+
+2. atmosphere-gwt-fe
 
 [Atmosphere]: https://github.com/Atmosphere/atmosphere
-[Spring Integration]: http://www.springsource.org/spring-integration
 
