@@ -14,13 +14,20 @@ Tomcat server - you can change the connector in the server.xml to the following:
 
 Setup:
 1. Clone this repository
+
 2. Import existing maven projects into eclipse
+
 3. Add both projects above to your tomcat installation.
+
 4. Start tomcat
-5. Open browser, and point to http://localhost:8080/AtmosphereGWT/ 
+
+5. Open browser, and point to http://localhost:8080/AtmosphereGWT/
+ 
 6. Use Chrome dev tools to see if websocket connect succeeded 
 
-7. See TestPresenter.java, this contains the code to connect to the atmosphere servlet. Currently not working, help needed!! 
+7. See TestPresenter.java, this contains the code to connect to the atmosphere servlet. 
+
+CURRENTLY NOT WORKING, HELP NEEDED!!
 
 [Atmosphere]: https://github.com/Atmosphere/atmosphere
 
