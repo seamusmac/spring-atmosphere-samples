@@ -5,7 +5,7 @@ This repository illustrates integration scenarios for [Atmosphere], between a GW
 The following 2 samples are provided:
 
 1. spring-mvc-atmosphere-sample - Spring MVC project with [Atmosphere] servlet enabled.
-2. atmosphere-gwt-fe - GWT front end project to connect to project above.
+2. AtmosphereGWT - GWT front end project to connect to project above.
 
 Tested using Eclipse 3.7 (Indigo), Tomcat 7.0.30
 
