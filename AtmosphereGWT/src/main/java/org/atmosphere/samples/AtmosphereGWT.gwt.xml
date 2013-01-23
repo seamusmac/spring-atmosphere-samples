@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<module rename-to='atmospheregwt'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.inject.Inject" />
+	<inherits name="com.google.gwt.uibinder.UiBinder" />
+	<inherits name="com.google.gwt.resources.Resources" />
+
+	<inherits name="org.atmosphere.gwt.Client" />
+	<inherits name="com.google.gwt.logging.Logging" />
+	<set-property name="gwt.logging.logLevel" value="FINEST" />
+	<set-property name="gwt.logging.popupHandler" value="DISABLED" />
+
+    <inherits name='com.kfuntak.gwt.json.serialization.GWTProJsonSerializer'/>
+    <replace-with class="org.atmosphere.samples.client.JSONObjectSerializerGWTPro">
+        <when-type-assignable class="org.atmosphere.gwt.client.JSONObjectSerializer"/>
+    </replace-with>
+
+	<!-- Inherit the default GWT style sheet. You can change -->
+	<!-- the theme of your GWT application by uncommenting -->
+	<!-- any one of the following lines. -->
+	<!-- <inherits name="com.google.gwt.user.theme.standard.Standard" /> -->
+	<inherits name='com.google.gwt.user.theme.standard.StandardResources' />
+
+	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
+	<set-configuration-property name="CssResource.style" value="pretty" />
+
+	<!-- Other module inherits -->
+	<inherits name='com.google.gwt.query.Query' />
+	<inherits name="com.github.gwtbootstrap.Bootstrap" />
+	<set-property name="bootstrap.responsiveDesign" value="true" />
+	<inherits name='com.github.gwtbootstrap.datepicker.Datepicker' />
+
+	<inherits name="com.gwtplatform.mvp.Mvp" />
+
+	<!-- <set-property name="user.agent" value="safari" /> -->
+	<set-property name="locale" value="default" />
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+	<source path='server' />
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class='org.atmosphere.samples.client.AtmosphereGWT' />
+
+	<define-configuration-property name='gin.ginjector' is-multi-valued='false' />
+	<set-configuration-property name='gin.ginjector' value='org.atmosphere.samples.client.gin.ClientGinjector' />
+
+
+
+	<add-linker name="xsiframe" />
+	<set-configuration-property name="devModeRedirectEnabled" value="true" />
+</module>

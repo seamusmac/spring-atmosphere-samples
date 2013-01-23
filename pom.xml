@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.integration.samples</groupId>
 	<artifactId>spring-atmosphere-samples-parent</artifactId>
-	<name>spring-atmosphere-samples-parent</name>
+	<name>Parent</name>
 	<packaging>pom</packaging>
 
 	<version>1.0.0.BUILD-SNAPSHOT</version>
@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>spring-mvc-atmosphere-sample</module>
+		<module>AtmosphereGWT</module>
 	</modules>
 
 </project>

@@ -5,3 +5,7 @@ log.roo
 .settings
 .springBeans
 .DS_Store
+*/webapp/WEB-INF/classes
+*/webapp/atmospheregwt
+*/gwt-unitCache
+.gwt

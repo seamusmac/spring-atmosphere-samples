@@ -135,6 +135,13 @@
 			<artifactId>jackson-xc</artifactId>
 			<version>1.9.8</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-gwt-server</artifactId>
+            <version>${atmosphere.version}</version>
+        </dependency>
+        
 	</dependencies>
 
 	<repositories>
