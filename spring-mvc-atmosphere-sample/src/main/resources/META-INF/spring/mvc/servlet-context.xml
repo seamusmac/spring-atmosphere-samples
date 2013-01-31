@@ -15,12 +15,7 @@
 	<context:component-scan base-package="org.springframework.mvc.samples.atmosphere" />
 
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<mvc:annotation-driven>
-		<mvc:argument-resolvers>
-			<bean
-				class="org.springframework.mvc.samples.atmosphere.support.AtmosphereArgumentResolver" />
-		</mvc:argument-resolvers>
-	</mvc:annotation-driven>
+	<mvc:annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving
 		up static resources in the ${webappRoot}/resources directory -->
@@ -39,12 +34,7 @@
 <!-- 	<beans:import resource="controllers.xml" />
  -->
 
- 	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-		<property name="supportedMediaTypes" value="application/json" />
-		<property name="objectMapper" ref="jaxbJacksonObjectMapper" />
-	</bean>
-
-	<bean id="jaxbJacksonObjectMapper" class="org.springframework.mvc.samples.atmosphere.support.JaxbJacksonObjectMapper" />
+ 	<bean id="objectMapper" class="com.ardan1.core.jackson.CustomObjectMapper" />
 
 <!-- 	<bean class="org.springframework.mvc.samples.atmosphere.service.TwitterService"/>
  -->

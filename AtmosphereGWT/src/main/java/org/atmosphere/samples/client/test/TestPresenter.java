@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 import org.atmosphere.gwt.client.AtmosphereClient;
 import org.atmosphere.gwt.client.AtmosphereGWTSerializer;
 import org.atmosphere.gwt.client.AtmosphereListener;
-import org.atmosphere.samples.client.TwitterMessage;
 import org.atmosphere.samples.client.TwitterMessageSerializer;
 import org.atmosphere.samples.client.place.NameTokens;
+import org.atmosphere.samples.shared.TwitterMessage;
 
 import com.github.gwtbootstrap.client.ui.Label;
 import com.github.gwtbootstrap.client.ui.SubmitButton;
@@ -18,10 +18,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.StatusCodeException;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
@@ -39,7 +40,7 @@ public class TestPresenter extends Presenter<TestPresenter.MyView, TestPresenter
 
 		public TextBox getTextbox();
 
-		public HTMLPanel getMessageList();
+		public VerticalPanel getMessageList();
 	}
 
 	@ProxyCodeSplit
@@ -48,9 +49,8 @@ public class TestPresenter extends Presenter<TestPresenter.MyView, TestPresenter
 	}
 
 	@Inject
-	public TestPresenter(final EventBus eventBus, final MyView view, final MyProxy proxy, @Named("restServer") String restServer) {
+	public TestPresenter(final EventBus eventBus, final MyView view, final MyProxy proxy) {
 		super(eventBus, view, proxy);
-		this.restServer = restServer;
 	}
 
 	@Override
@@ -77,12 +77,16 @@ public class TestPresenter extends Presenter<TestPresenter.MyView, TestPresenter
 	AtmosphereClient client;
 	MyCometListener cometListener = new MyCometListener();
 	AtmosphereGWTSerializer serializer = GWT.create(TwitterMessageSerializer.class);
-	String restServer;
+	String restServer = "http://localhost:8080/spring-mvc-atmosphere-sample/websockets/websockets/";
 
 	String getUrl() {
 		// return
 		// "ws://localhost:8080/spring-mvc-atmosphere-sample/websockets/?X-Atmosphere-tracking-id=0&X-Atmosphere-Framework=1.0&X-Atmosphere-Transport=websocket&X-Cache-Date=0&Content-Type=application/json";
-		return restServer + "/";// + "/websockets?Content-Type=application/json";
+		
+		restServer = restServer.replace("localhost:8080", Window.Location.getHost());
+		
+		
+		return restServer; //+ "?X-Atmosphere-Transport=websocket&Content-Type=application/json"; // + "/websockets?Content-Type=application/json";
 	}
 
 	private void startWebSockets() {
@@ -101,7 +105,7 @@ public class TestPresenter extends Presenter<TestPresenter.MyView, TestPresenter
 		twitterMessage.setId(new Long(100));
 		twitterMessage.setText("Message:" + getView().getTextbox().getText());
 
-		client.post(twitterMessage);
+		client.broadcast(twitterMessage);
 	}
 
 	private class MyCometListener implements AtmosphereListener {
@@ -156,6 +160,8 @@ public class TestPresenter extends Presenter<TestPresenter.MyView, TestPresenter
 		@Override
 		public void onMessage(List<?> messages) {
 			logger.info("onMessage::::::: comet.onMessage [" + client.getConnectionUUID() + "]");
+			getView().getMessageList().add(new Label(messages.toString()));
+			
 			for (Object obj : messages) {
 				if (obj instanceof TwitterMessage) {
 					TwitterMessage twitterMessage = (TwitterMessage) obj;

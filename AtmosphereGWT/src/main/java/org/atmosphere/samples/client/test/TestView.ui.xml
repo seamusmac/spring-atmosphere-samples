@@ -14,6 +14,6 @@
 			Send Message
 		</b:SubmitButton>
 
-		<g:HTMLPanel ui:field="messageList" />
+		<g:VerticalPanel ui:field="messageList" />
 	</g:HTMLPanel>
 </ui:UiBinder>

@@ -15,6 +15,15 @@
     <replace-with class="org.atmosphere.samples.client.JSONObjectSerializerGWTPro">
         <when-type-assignable class="org.atmosphere.gwt.client.JSONObjectSerializer"/>
     </replace-with>
+    
+<!--     <replace-with class="org.atmosphere.gwt.client.impl.IEHTMLFileCometTransport"> -->
+<!--     <when-type-is class="org.atmosphere.gwt.client.impl.CometTransport"/> -->
+<!--     <any> -->
+<!--         <when-property-is name="user.agent" value="ie6"/> -->
+<!--         <when-property-is name="user.agent" value="ie8"/> -->
+<!--         <when-property-is name="user.agent" value="ie9"/> -->
+<!--     </any> -->
+<!-- </replace-with> -->
 
 	<!-- Inherit the default GWT style sheet. You can change -->
 	<!-- the theme of your GWT application by uncommenting -->
@@ -39,15 +48,13 @@
 
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
-	<source path='server' />
+	<source path='shared' />
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='org.atmosphere.samples.client.AtmosphereGWT' />
 
 	<define-configuration-property name='gin.ginjector' is-multi-valued='false' />
 	<set-configuration-property name='gin.ginjector' value='org.atmosphere.samples.client.gin.ClientGinjector' />
-
-
 
 	<add-linker name="xsiframe" />
 	<set-configuration-property name="devModeRedirectEnabled" value="true" />

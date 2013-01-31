@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atmosphere-handlers>
+	<atmosphere-handler context-root="/websockets/*" class-name="org.atmosphere.samples.server.AtmosphereHandler">
+		<property name="heartbeat" value="15000" />
+		
+		<applicationConfig>
+			<param-name>org.atmosphere.disableOnStateEvent</param-name>
+			<param-value>true</param-value>
+		</applicationConfig>
+		<applicationConfig>
+          <param-name>org.atmosphere.cpr.broadcaster.shareableThreadPool</param-name>
+          <param-value>true</param-value>
+      </applicationConfig>
+	</atmosphere-handler>
+</atmosphere-handlers>

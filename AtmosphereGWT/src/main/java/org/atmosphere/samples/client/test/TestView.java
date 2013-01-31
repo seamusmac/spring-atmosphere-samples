@@ -5,6 +5,7 @@ import com.github.gwtbootstrap.client.ui.TextBox;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
@@ -23,7 +24,7 @@ public class TestView extends ViewImpl implements TestPresenter.MyView {
 	TextBox textbox;
 
 	@UiField
-	HTMLPanel messageList;
+	VerticalPanel messageList;
 
 	@Inject
 	public TestView(final Binder binder) {
@@ -43,7 +44,7 @@ public class TestView extends ViewImpl implements TestPresenter.MyView {
 		return textbox;
 	}
 
-	public HTMLPanel getMessageList() {
+	public VerticalPanel getMessageList() {
 		return messageList;
 	}
 }

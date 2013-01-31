@@ -13,10 +13,13 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package org.atmosphere.samples.client;
+package org.atmosphere.samples.shared;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.kfuntak.gwt.json.serialization.client.JsonSerializable;
 
 /**
  * Represents some common Twitter related fields.
@@ -25,8 +28,11 @@ import java.util.Date;
  * @since 1.0
  * 
  */
-
-public class TwitterMessage implements Serializable {
+@JsonTypeInfo(
+		use=JsonTypeInfo.Id.CLASS,
+		include=JsonTypeInfo.As.PROPERTY,
+		property="class")
+public class TwitterMessage implements Serializable, JsonSerializable {
 
 	/**
 	 * 
