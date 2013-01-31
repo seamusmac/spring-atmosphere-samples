@@ -1,5 +1,6 @@
 package org.atmosphere.samples.server;
 
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
